@@ -1,3 +1,5 @@
+require 'capybara/rails'
+require 'capybara/cucumber'
 Rottenpotatoes::Application.configure do
   # Settings specified here will take precedence over those in config/application.rb
 
@@ -8,11 +10,14 @@ Rottenpotatoes::Application.configure do
   config.cache_classes = true
 
   # Configure static asset server for tests with Cache-Control for performance
-  config.serve_static_assets = true
+  # deprecated - config.serve_static_assets = true
+  config.serve_static_files = true
   config.static_cache_control = "public, max-age=3600"
   config.eager_load = false
 
-
+  # Enable rspec style 'should' syntax
+  # config.expect_with(:rspec) { |c| c.syntax = :should }
+  
   # Show full error reports and disable caching
   config.consider_all_requests_local       = true
   config.action_controller.perform_caching = false
